@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <style media="screen">
+            fieldset {
+                width: 500px;
+            }
+        </style>
+        <script src="node_modules/react/umd/react.development.js"></script>
+        <script src="node_modules/react-dom/umd/react-dom.development.js"></script>
+
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+        <!-- <div id="app"></div> -->
+        <fieldset>
+            <legend>using JavaScript:</legend>
+            <div id="js"></div>
+        </fieldset>
+        <fieldset>
+            <legend>using React:</legend>
+            <div id="react"></div>
+        </fieldset>
+
+        <script>
+            // console.log(React);
+            // console.log(ReactDOM);
+
+            //----------- add a button to our page using React ----------------->
+            // const myButton = React.createElement('button', null, 'Click Me');
+            // console.log(JSON.stringify(myButton));
+            // ReactDOM.render(myButton, document.getElementById('app'));
+
+            // console.log(currentTime);
+
+            //------------------ vanilla JavaScript-------------------->
+            function time(){
+                let time = new Date().toLocaleTimeString();
+                const header1 = `<h1>The current time is ${time}</h1>`
+                document.getElementById('js').innerHTML = header1;
+            }
+            setInterval(time, 1000);
+
+            //------------------ using React and ReactDOM ----------------------------------------->
+            function getCurrentTime(){
+                let currentTime = new Date().toLocaleTimeString();
+                const header2 = React.createElement('h1', null, `The current time is ${currentTime}`);
+                ReactDOM.render(header2, document.getElementById('react'));
+            }
+            setInterval(getCurrentTime, 1000);
+
+
+
+        </script>
+
+    </body>
+</html>
